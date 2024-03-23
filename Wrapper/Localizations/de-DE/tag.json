@@ -1,9 +1,8 @@
-﻿{
+{
   "Warning": "Warnen",
-  "Checkings": "Überprüfen",
+  "InitialActions": "Überprüfen",
   "Disable": "Deaktivieren",
   "Enable": "Aktivieren",
-  "None": "Nichts",
   "Minimal": "Мinimal",
   "Default": "Standard",
   "Never": "Niemals",
@@ -42,6 +41,7 @@
   "Left": "Links",
   "Center": "Zentriert",
   "WindowsTerminal": "Windows-Terminal",
-  "ConsoleHost": "Konsolenhost"
+  "ConsoleHost": "Konsolenhost",
+  "Channels": "Kanäle",
+  "Skip": "Überspringen"
 }
- 

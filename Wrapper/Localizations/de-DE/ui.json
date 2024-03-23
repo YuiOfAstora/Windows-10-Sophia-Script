@@ -1,4 +1,4 @@
-﻿[
+[
   {
     "Id": "Menu",
     "Options": {
@@ -18,9 +18,10 @@
   {
     "Id": "Tab",
     "Options": {
+      "tabSearch": "Suchen",
       "tabSystemProtection": "Systemschutz",
-      "tabPrivacyTelemetry": "Datenschutz und Telemetrie",
-      "tabUIPersonalization": "UI & Personalisierung",
+      "tabPrivacyTelemetry": "Datenschutz",
+      "tabUIPersonalization": "Personalisierung",
       "tabOneDrive": "OneDrive",
       "tabSystem": "System",
       "tabWSL": "WSL",
@@ -30,6 +31,7 @@
       "tabScheduledTasks": "Geplante Aufgaben",
       "tabDefenderSecurity": "Defender & Security",
       "tabContextMenu": "Kontextmenü",
+      "tabUpdatePolicies": "Aktualisieren Sie die Richtlinien",
       "tabConsoleOutput": "Konsolenausgabe"
     }
   },
@@ -37,7 +39,11 @@
     "Id": "Button",
     "Options": {
       "btnRefreshConsole": "Konsole aktualisieren",
-      "btnRunPowerShell": "PowerShell ausführen"
+      "btnRunPowerShell": "PowerShell ausführen",
+      "btnOpen": "Offen",
+      "btnSave": "Speichern",
+      "btnSearch": "Suchen",
+      "btnClear": "Klar"
     }
   },
   {
@@ -52,7 +58,8 @@
       "statusBarPowerShellExport": "PowerShell Skript erstellt!",
       "statusBarOpposite": "Umgekehrte Einstellungen ausgewählt!",
       "statusBarClear": "Auswahlen alle gelöscht!",
-      "statusBarDisabled": "Sie müssen zuerst 'Voreinstellung importieren', um die Verwendung von Wrapper zu aktivieren. Importieren, um Steuerelemente zu aktivieren."
+      "statusBarDisabled": "Sie müssen zuerst 'Voreinstellung importieren', um die Verwendung von Wrapper zu aktivieren. Importieren, um Steuerelemente zu aktivieren.",
+      "statusBarCurrentOS": "Aktuelles OS"
     }
   },
   {
@@ -60,10 +67,19 @@
     "Options": {
       "messageBoxNewWrapperFound": "Eine neue Version von 'Wrapper' wurde entdeckt.\nGitHub-Seite öffnen?",
       "messageBoxNewSophiaFound": "Eine neue Version von 'Sophia Script' wurde entdeckt.\nGitHub-Seite öffnen?",
-      "messageBoxDoesNotExist": "existiert nicht",
+      "messageBoxDoesNotExist": "existiert nicht.",
       "messageBoxPresetNotComp": "Voreinstellung ist nicht kompatibel!",
-      "messageBoxFilesMissingClose": "Die erforderlichen Sophia Script Wrapper-Dateien fehlen. Das Programm wird geschlossen",
-      "messageBoxConsoleEmpty": "Die Konsole ist leer.\n Drücken Sie die Schaltfläche Konsole aktualisieren, um ein Skript entsprechend Ihrer Auswahl zu erstellen"
+      "messageBoxFilesMissingClose": "Die erforderlichen Sophia Script Wrapper-Dateien fehlen. Das Programm wird geschlossen.",
+      "messageBoxConsoleEmpty": "Die Konsole ist leer.\n Drücken Sie die Schaltfläche Konsole aktualisieren, um ein Skript entsprechend Ihrer Auswahl zu erstellen.",
+      "messageBoxPowerShellVersionNotInstalled": "Die von Ihnen ausgewählte PowerShell-Version ist nicht installiert.",
+      "messageBoxMaybeFilesNotUnzippedProperly": "Möglicherweise wurden die Dateien nicht ordnungsgemäß entpackt."
+    }
+  },
+  {
+    "Id": "Other",
+    "Options": {
+      "textBlockSearchInfo": "Geben Sie die Suchzeichenfolge ein, um die Option zu finden. Die Registerkarte wird in der Farbe Rot umrandet, um die Registerkarte zu finden, die die Option(en) enthält, und die Beschriftung der Option wird ebenfalls in Rot umrandet.",
+      "textBlockSearchFound": "Anzahl der gefundenen Optionen:"
     }
   }
 ]

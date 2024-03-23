@@ -5,21 +5,676 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## 5.12.7 | 6.0.8 — 05.12.2021
+## 5.18.2 | 6.6.2 — 06.03.2024
+
+* Initial checks simplified;
+  * Script now relies on parsing <https://github.com/farag2/Sophia-Script-for-Windows/blob/master/supported_windows_builds.json> to check the actual supported Windows build;
+    * If there's no Internet connection established, the check will be skipped.
+  * In anticipation of providing an ability to remove Edge from Microsoft, the Edge check was removed.
+* `InstallDotNetRuntimes` function has now only `NET6x64, NET7x64, NET8x64` supported arguments
+* Minor changes.
+
+### Wrapper 2.6.18
+
+* Fixed Set-Association;
+  * Can include spaces in filepath.
+* More organized output console 2.6.18.
+
+## 5.18.1 | 6.6.1 — 03.03.2024
+
+* Code refactoring;
+* Improved initial checks;
+* Fixed small bug when explorer process didn't load back after restating in `OneDrive -Uninstall` function;
+* Closed #554;
+* Added `SearchHighlights` function to show or hide hightlights in the search on the taskbar;
+* Fixed bug in all creating scheduled tasks where a wrong encoding were used that cased mojibake;
+  * You may re-create them if you've encountered such bug.
+  * Thanks to @lowl1f3.
+* Fixed typos;
+* Minor changes.
+
+### Wrapper 2.6.17
+
+* Added `InstallDotNetRuntimes -Runtimes` function to install latest `.NET 6, 7, 8 frameworks`
+* Fixed bug crash when searching in Windows 10 src.
+
+## 5.18.0 | 6.6.0 — 02.02.2024
+
+* Improved initial checks;
+* Extended harmful tweakers list checks;
+* Improved HEVC package downloading function;
+* Added `RegistryBackup` function to back up the system registry to %SystemRoot%\System32\config\RegBack folder when PC restarts and create a RegIdleBackup in the Task Scheduler task to manage subsequent backups;
+* Fixed typos;
+* Minor changes.
+
+### Wrapper 2.6.15
+
+* Added search function
+
+![изображение](https://github.com/farag2/Sophia-Script-for-Windows/assets/10544660/25a74d12-75ff-42f4-bbc4-b6157563ed41)
+
+![изображение](https://github.com/farag2/Sophia-Script-for-Windows/assets/10544660/19a94e40-9656-454a-9acf-44f3d44931ed)
+
+## 5.17.9 | 6.5.9 — 26.12.2023
+
+* Fixed bug in `HEVC` function that prevented package downloading;
+* Removed `WaitNetworkStartup` function as unnecessary one;
+* Renamed `TaskbarChat` function into `PreventTeamsInstallation`;
+* Fixed typos;
+* Minor changes.
+
+### Wrapper 2.6.13
+
+* Added compatibility with the latest `Sophia Script` version;
+* Bug fix.
+
+> **Note**: Please note that Wrapper doesn't have all functions as CLI `Sophia Script` provides. If you want to apply all functions, you need to configure `Sophia.ps1` file.
+
+With best wishes for a happy New Year from `Team Sophia` ![img](https://forum.ru-board.com/board/s/deds.gif)
+
+## 5.17.8 | 6.5.8 — 08.12.2023
+
+* The `InitialActions` function simplified;
+* Fixed bug in `TempTask` when `$env:SystemDrive\Recovery` folder wasn't removed;
+  * Just in case re-create `Temp` scheduled task via `. .\Functions.ps1` [method](https://github.com/farag2/Sophia-Script-for-Windows#how-to-run-the-specific-functions).
+  * Thanks to `linchel23`.
+* Added `CopilotButton` function for `Windows 10` to hide ot show Copilot button on the taskbar as Windows starts supporting it with the latest available build;
+* Added `WindowsLatestUpdate` function for `Windows 10` to let user get Windows updates as soon as they're available for your device as Windows starts supporting it with the latest available build;
+* Removed `HEVC` function for `Windows 11` as unnecessary one as `Windows 11` already has `Microsoft.HEVCVideoExtension` package pre-installed;
+* Fixed typos;
+* Minor changes.
+
+## 5.17.7 | 6.5.7 — 20.10.2023
+
+* Added `UserFolders` function to hide or show user folders in `This PC`;
+  * Applicable for `Windows 10` only;
+  * `UserFolders -ThreeDObjects Show -Desktop Show -Documents Show -Downloads Show -Music Show -Pictures Show -Videos Show`;
+  * Closed #535.
+* Added `CopilotButton` function to hide or show Copilot on the taskbar.
+  * Applicable for `Windows 11` only;
+
+  ```powershell
+  CopilotButton -Hide
+  CopilotButton -Show
+  ```
+
+* Added `TaskbarCombine` function to configure the icons on icons behaviour on the taskbar;
+  * Applicable for `Windows 11` only;
+
+  ```powershell
+  TaskbarCombine -Always
+  TaskbarCombine -Full
+  TaskbarCombine -Never
+  ```
+
+* Added `ComssOneDNS` argument for `DNSoverHTTPS` function to enable DNS-over-HTTPS via Comss.one DNS server;
+  * Applicable for Russia only
+  * <https://www.comss.ru/page.php?id=7315>
+* Minor changes.
+
+### Wrapper 2.6.12
+
+* Added compatibility with the latest `Sophia Script`` version;
+* Bug fix.
+
+
+## 5.17.6 | 6.5.6 — 17.09.2023
+
+* Change method to detect whether Internet connection exist;
+  * Now it relies on `dns.msftncsi.com` instead of `google.com/cloudflare.com`.
+* #532 fixed;
+* Fixed typos.
+
+### Wrapper 2.6.11
+
+* Wrapper runs now even if internet is down;
+* Wrapper now checks whether PowerShell 7 is installed if preset contains appropriate string;
+* Bug fix.
+
+## 5.17.5 | 6.5.5 — 19.08.2023
+
+* #525 closed;
+* Minor changes.
+
+### Wrapper 2.6.10
+
+* Added `Set-Association` function;
+
+## 5.17.4 | 6.5.4 — 16.07.2023
+
+* Improved interactive menu UX.
+
+https://user-images.githubusercontent.com/10544660/253818031-b7ce6bf1-d968-41ea-a5c0-27f6845de402.mp4
+
+## 5.17.3 | 6.5.3 — 11.07.2023
+
+* Replaced interactive menus overall within a custom `Show-Menu` function;
+  * Thanks to [MaxKozlov](https://habr.com/users/MaxKozlov)
+  * [How-to](https://github.com/farag2/Sophia-Script-for-Windows/tree/master#change-user-folders-location-programmatically-using-the-interactive-menu).
+* Improved German translation. #514 merged;
+  * Thanks to @sensinsane.
+* Minor changes.
+
+### Wrapper 2.6.9
+
+* Small changes;
+  * Thanks to `ajt174`.
+
+## 5.17.2 | 6.5.2 — 02.07.2023
+
+* Added `BrowsingHistory` function to hide websites from your browsing history in the Start menu;
+* Fixed #506;
+* Improved and fixed descriptions;
+* Minor changes.
+
+Thanks to @amd64fox for providing a remote access to reproduce the bug.
+Thanks to frost_tg for bug reporting
+
+### Wrapper 2.6.8
+
+* Improved preset exporting function;
+* Fixed #506;
+* Improved numerous JSON descriptions typos.
+
+## 5.17.1 | 6.5.1 — 26.06.2023
+
+* Fixed bug in `Export-Associations`;
+  * Reported by @lowl1f3.
+* Closed #494;
+  * Now `TaskbarChat` function except hiding the iсon also prevents `Microsoft Teams` from installing for new users by creating a special registry key as `NT SERVICE\TrustedInstaller`;
+* Fixed `Cursors` function.
+  * If you encountered with a wrong cursor applied, please re-apply the function.
+
+### Wrapper 2.6.7
+
+* Closed #490.
+
+## 5.17.0 | 6.5.0 — 27.05.2023
+
+* Expanded start-up checks;
+  * Now the script checks and removes all IP addresses add to `hosts` file that block Microsoft recourses added by harmful tweaker [WindowsSpyBlocker](https://github.com/crazy-max/WindowsSpyBlocker);
+  * Now the script checks whether `Microsoft Edge` is installed, and if not it will be downloaded and installed.
+* Improved and fixed `Set-Association` function
+  * Now you can associate extensions with protocols: `Set-Association -ProgramPath MSEdgeMHT -Extension .html`.
+* Added `Export-Associations` and `Import-Associations` to let user export all Windows associations and import all Windows associations from a JSON file;
+  * `Export-Associations` exports `Application_Associations.json` to script root folder;
+  * You have to install all apps to the same folders according to an exported JSON file to restore all associations, unless this extension will be skipped;
+  * `Import-Associations` lets you import `Application_Associations.json` via an open file dialog;
+  * This is more of a `proof of concept` (and may contain bugs) which shows that is possible to restore associations from an old PC to a new one (like in some harmful tweakers like `Modern Tweaker` and `Win10Tweaker` provide). But I'd not recommend to rely on this approach. Better do it manually. But the functions works. :cat:
+* Added `SecondsInSystemClock` function for Windows 11 to enable seconds in the taskbar as Windows 10 provides.
+* Fixes for #472, #476, #480, and #482;
+* Improved translations;
+* Minor changes.
+
+### Wrapper 2.6.6
+
+* Fixed JSON configs;
+* Improved the German translation;
+  * Thanks to @sensinsane.
+* Minor changes.
+
+> **Note**: Please note that Wrapper doesn't have all functions as CLI `Sophia Script` provides. If you want to apply all functions, you need to configure `Sophia.ps1` file.
+
+`Sophia Script for Windows` hits more than 700 000 downloads! Thank you for your interest in Windows tweaking! ❤️
+
+## 5.16.4 | 6.4.4 — 01.04.2023
+
+* Fixes for #466, #472, #470, and #469
+* Fixed a bug in Set-Association function when a used Desktop context menu item was accidentally removed;
+  * Thanks to @lowl1f3.
+
+## 5.16.3 | 6.4.3 — 28.03.2023
+
+* Improved `Checks`;
+  * Expanded the list of harmful tweakers, trojans and other unwanted apps blocking the script running;
+  * Added Microsoft Edge installation if it was removed by harmful tweakers. [WebView2 Runtime](https://helpdeskgeek.com/help-desk/what-is-microsoft-edge-webview2-runtime-and-how-to-reduce-cpu-usage/) is a mandatory Windows component.
+* Minor changes and improvements.
+
+## 5.16.2 | 6.4.2 — 20.03.2023
+
+* Added `LocalSecurityAuthority` function to prevent code injection (for Windows 11 22H2 only);
+  * <https://learn.microsoft.com/en-us/windows-server/security/credentials-protection-and-management/configuring-additional-lsa-protection>
+* Improved `Checks` having expanded the list of blocked harmful tweakers;
+* Fixed `ThumbnailCacheRemoval` function;
+* Removed `SnapAssistFlyout` function;
+* Minor changes.
+
+### Wrapper 2.6.4
+
+* Minor changes.
+
+## 5.16.1 | 6.4.1 — 14.03.2023
+
+* Code refactoring;
+* Fixed a bug in `ShowMenu` function when Windows Terminal console was overbuffered that broke interractive ShowMenu;
+  * Big thanks to [iNNOKENTIY21](https://forum.ru-board.com/profile.cgi?action=show&member=iNNOKENTIY21);
+  * <https://github.com/microsoft/terminal/issues/14992>
+* Fixed `IPv6Component` by switching to <https://ipify.org>
+* Removed `CheckUWPAppsUpdates` function and intergrated into code;
+* Renamed `SetUserShellFolderLocation` function into `Set-UserShellFolderLocation`;
+* Many small changes and improvements.
+
+## 5.16.0 | 6.4.0 — 08.03.2023
+
+* Dropped support for `Windows 11 22000` & `Windows 10 21H2`;
+  * If you run the script on `Windows 11 22000` you will silently download and run [Windows 11 Installation Assistant](https://www.microsoft.com/software-download/windows11), then download the [PC Health Check app](https://support.microsoft.com/en-us/windows/how-to-use-the-pc-health-check-app-9c8abd9b-03ba-4e67-81ef-36f37caa7844) and expand it without installation to prepare for upgrading.
+* `CleanupTask`, `SoftwareDistributionTask`, `TempTask` re-written;
+  * Now all scheduled tasks respect `Focus Assist` mode and won't interrupt while you playing games or watching fullscreen videos with any notification toasts or powershell.exe pop-ups
+  * Uses the [FocusAssistLib.cs](https://github.com/DCourtel/Windows_10_Focus_Assist/blob/master/FocusAssistLibrary/FocusAssistLib.cs) code from @DCourtel!
+  * <https://redplait.blogspot.com/2018/07/wnf-ids-from-perfntcdll-adk-version.html>
+  * **I strongly recommend you to update them** ([how-to](https://github.com/farag2/Sophia-Script-for-Windows#how-to-run-the-specific-functions))
+
+  ```powershell
+  # With dot at the beginning
+  . .\Functions.ps1
+
+  Sophia -Functions "CleanupTask -Register", "SoftwareDistributionTask -Register", "TempTask -Register"
+  ```
+
+* Improved `WSL-Install`;
+* Removed `RunPowerShellShortcut` function as not necessary any more;
+* `WSA` function renamed into `Install-WSA` and has no parameters any more;
+* Added `TaskbarSearch -SearchIconLabel` new parameter to configure search bar design on the taskbar;
+* Added `SATADrivesRemovableMedia` function to prevent all internal SATA drives from showing up as removable media in the taskbar notification area
+* #453 closed;
+* Many small changes and improvements.
+
+## 5.15.2 | 6.3.2 — 11.02.2023
+
+* Improved and fixed `WSL-Install` function when WSL output was parsed wrong;
+  * Thanks to @lowl1f3.
+* Improved `OneDrive` function;
+* #449 closed;
+* Minor changes.
+
+* Wrapper 2.6.3
+  * Minor changes.
+
+## 5.15.1 | 6.3.1 — 06.02.2023
+
+* `WSL` function re-written and renamed into `WSL-Install`
+  * Now it generates always actual distros supported list by parsing the `wsl --list --online` output;
+  * ![img](https://i.imgur.com/Xn5SqxE.png)
+  * Thanks to @Inestic, the main [SophiApp](https://github.com/Sophia-Community/SophiApp) developer.
+* Improved `OneDrive` function;
+* Added `NavigationPaneExpand` function to expand navigation pane to open folder
+  * Closes #444.
+* Renamed `HEIF` function to `HEVC`;
+* Minor changes.
+
+* Wrapper 2.6.2
+  * Minor changes.
+
+## 5.15.0 | 6.3.0 — 30.01.2023
+
+* Added new function to prevent Microsoft Edge desktop shortcut creation upon its' update;
+  * By default it prevents for all Microsofot Edge channels (with checks if any of them is installed): `PreventEdgeShortcutCreation -Channels Stable, Beta, Dev, Canary`.
+* The `IPv6Component` function gets new argument `-PreferIPv4overIPv6` to `Enable the Internet Protocol Version 6 (TCP/IPv6) component for all network connections if your ISP supports it. Prefer IPv4 over IPv6`;
+  * Closes #440.
+* Improved scheduled tasks functions: now it checks if tasks were already created for another user;
+* Fixed rare bug for `SetUserShellFolderLocation` function when Microsoft Terminal deblicates PC drivers in the menu;
+* Minor changes.
+
+* `Wrapper` updated up to `2.6.0`;
+  * Now fully compatitable with the latest script version.
+
+## 5.14.7 | 6.2.7 — 08.01.2023
+
+* Improved Microsoft Defender startup checks;
+* Improved Badge.yml config;
+* Minor changes.
+
+## 5.14.6 | 6.2.6 — 26.12.2022
+
+* Improved Defender startup checks;
+  * Thanks to @alan-null.
+* Improved `UninstallPCHealthCheck` function to install the "PC Health Check" app (Windows 10 only);
+  * Thanks to @alan-null.
+* Renamed `InstallDotNetRuntime7` into `InstallDotNetRuntimes` to let users install .NET Desktop Runtime 6 along side with the 7th version;
+* Added `FolderGroupBy` function to let users do not group files and folder in the File Explorer;
+* Minor changes.
+
+* With best wishes for a happy New Year from `Sophia Team` ![img](https://forum.ru-board.com/board/s/deds.gif)
+
+## 5.14.5 | 6.2.5 — 11.12.2022
+
+* Switched .NET Desktop Runtime 6 to the 7th version;
+* Minor changes.
+
+## Wrapper
+
+* Removed annoying pop-up notification while importing preset;
+* @BenchTweakGaming.
+
+## 5.14.4 | 6.2.4 — 04.12.2022
+
+* Updated the Scheduled tasks notification toasts UI;
+  ![Image](https://github.com/Sophia-Community/SophiApp/raw/master/img/Toasts.png)
+  * Call `Sophia -Functions "CleanupTask -Register", "SoftwareDistributionTask -Register", "TempTask -Register"` to update existing Scheduled tasks to have a new toasts UI;
+  * [Read](https://github.com/farag2/Sophia-Script-for-Windows#how-to-run-the-specific-functions) how to call specific function from Sophia Script for Windows.
+* Fixed bug for `TempFolder` function to make it work without errors on systems with non-latin characters in username;
+* Fixed small bug in `NetworkAdaptersSavePower`;
+  * Now it doesn't hang script in rare cases.
+* `EditWithPhotosContext` and `CreateANewVideoContext` function were removed for Windows 11 only due to they do not work for this Windows;
+* Added `EditWithClipchampContext` for Windows only to let remove `Edit with Clipchamp` from the media files context menu;
+* Fixed typos in `UpdateLGPEPolicies` function
+  * Run this function again if you want to make all manually created policies visible in gpedit.msc snap-in.
+* #411 merged;
+* Fixed #406;
+* Minor changes.
+
+## Wrapper version bumped to 2.5.8
+
+* Minor changes and added link to Discord channel;
+* Wrapper 3.0 is on the way.
+
+## 5.14.3 | 6.2.3 — 04.11.2022
+
+* Hot fix for `HEIF` function;
+  * Thanks to Ravz59 for bug reporting.
+
+## 5.14.2 | 6.2.2 — 02.11.2022
+
+* `HEIF` function was re-written;
+  * Now it downloads the latest HEVC codec package using the <https://store.rg-adguard.net> parser again;
+  * Now it checks version of installed package before installing;
+  * #406 closed.
+* Minor changes.
+
+## 5.14.1 | 6.2.1 — 31.10.2022
+
+* Fixed old bug in Meet Now function when it didn't save registry key value;
+* Improved all scheduled tasks creation;
+  * Unified tasks with [SophiApp](https://github.com/Sophia-Community/SophiApp): they are created now in `Sophia` folder;
+  * When you remove all tasks in the `Task Scheduler`, folder will be removed too;
+* Added missed strings in the Wrapper configs;
+* Improved Wrapper German translation;
+  * Thanks to @Henry2o1o.
+* Minor changes.
+
+## 5.14.0 | 6.2.0 — 23.10.2022
+
+* Moved from `PolFileEditor.dll` to [LGPO.exe](https://techcommunity.microsoft.com/t5/microsoft-security-baselines/lgpo-exe-local-group-policy-object-utility-v1-0/ba-p/701045) from Microsoft;
+  * It lets manually created policies keys in registry be visible in gpedit.msc snap-in by re-building policy cache by official way;
+  * So all functions that rely on policy will be visible in the snap-in for you;
+  * The `UpdateLGPEPolicies` was edited to be suitable for a new method based on LGPO.exe;
+    * Commented out be default now.
+* Added a new function `Cursors`
+
+  ![img](https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/i/1d4615ed-fd22-417b-970a-753c792ac85b/densjkc-0b04ea68-6347-456b-ab8a-3e6dc03ebc02.jpg)
+
+  * Lets you to install free (light and dark) "Windows 11 Cursors Concept v2" cursors from [Jepri Creations](https://www.deviantart.com/jepricreations/art/Windows-11-Cursors-Concept-v2-886489356) on-the-fly;
+  * Default option is `Dark`.
+* The `InstallVCRedist` function now installs both x86 and x64 `Visual C++ Redistributable 2015–2022` packages;
+* Fixed bug in the `Windows Cleanup` scheduled task for cleaning Windows. If you applied this function in 6.1.5 release, re-apply in again using this release, unless the task won't run at all.
+  * [How-to](https://github.com/farag2/Sophia-Script-for-Windows#how-to-run-the-specific-functions) call specific function
+
+  ```powershell
+  Sophia -Functions "CleanupTask -Register"
+  ```
+
+* Minor changes.
+
+## 5.13.5 | 6.1.5 — 09.10.2022
+
+* Added a temp workaround to check whether `PolFileEditor.dll` assembly was loaded due to even it was unblocked for SmartScreen before, it's blocked for loading into PowerShell session;
+  * Fixes bug when script couldn't load `PolFileEditor.dll` into session and broke the functionality that relies on it. Now if script detects that `PolFileEditor.dll` wasn't loaded, offer to restart powershell.exe session.
+  * Will be obsolete with the 6.2.0 release.
+* Fixed `winget` not installing Visual C++ Redistributable 2015–2022;
+  * Microsoft [changed](https://github.com/microsoft/winget-pkgs/blob/master/manifests/m/Microsoft/VCRedist/2015%2B/x64/14.34.31823.3/Microsoft.VCRedist.2015%2B.x64.installer.yaml#L4) package identifier.
+* Minor changes.
+
+## 5.13.4 | 6.1.4 — 13.08.2022
+
+## Windows 11 21H2/22H2 | Windows 10 2004/20H2/21H1/21H2/22H2 | Enterprise LTSC 2021 | Enterprise LTSC 2019
+
+Diff from v6.1.3
+[6.1.3...6.1.4](https://github.com/farag2/Sophia-Script-for-Windows/compare/6.1.3...6.1.4)
+
+* We opened our official [Discord](https://discord.gg/sSryhaEv79) channel! Feel free to chat and talk! [![Discord](https://discordapp.com/api/guilds/1006179075263561779/widget.png?style=shield)](https://discord.gg/sSryhaEv79)
+* Improved Defender checks;
+  * Now they're skipped for `Windows 10 Enteprise G`;
+  * Closes #379.
+* Now all all `.ps1, .psm1, .psd1` files are signed in cloud via GitHub Actions by a self-issued certificates;
+  * <https://github.com/farag2/Sophia-Script-for-Windows/blob/master/Scripts/Sign.ps1>
+  * <https://github.com/farag2/Sophia-Script-for-Windows/blob/63de3f5896fba014d7f6bb0493d4934b221fe1ef/.github/workflows/Sophia.yml#L17>
+* Removed unnecessary `BitLockerContext` function;
+* Improved `UpdateLGPEPolicies` function;
+  * Now it covers more GPOs to find in AMDX templates;
+  * Thanks `Alex_Piggy` for the code snippet.
+* Fixed bug when user couldn't launch PowerShell 7 based script if there is no localization for user's system;
+  * Closes #377.
+* `OpenWindowsTerminalAdminContext` function was re-written;
+  * `OpenWindowsTerminalAdminContext -Enable`, `OpenWindowsTerminalAdminContext -Disable`;
+  * Now it uses officially documented feature to make Windows Terminal to launch as administrator by default by editing `%LOCALAPPDATA%\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json` file.
+  To remove old context menu item, run
+
+  ```powershell
+  $Items = @(
+    "Registry::HKEY_CLASSES_ROOT\Directory\Background\shell\runas",
+    "Registry::HKEY_CLASSES_ROOT\Directory\shell\runas"
+  )
+  Remove-Item -Path $Items -Recurse -Force -ErrorAction Ignore
+  ```
+
+  And make Windows Terminal context menu item visible if you hid it before.
+
+    ```powershell
+    Remove-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Shell Extensions\Blocked" -Name "{9F156763-7844-4DC4-B2B1-901F640F5155}" -Force -ErrorAction Ignore
+  ```
+
+* Improved the Ukrainian 🇺🇦: translation.
+  * Thanks to @lowl1f3;
+  * #378 merged.
+* Minor changes.
+
+## 5.13.3 | 6.1.3 — 26.07.2022
+
+## Windows 11 21H2/22H2 | Windows 10 2004/20H2/21H1/21H2/22H2 | Enterprise LTSC 2021 | Enterprise LTSC 2019
+
+* Strengthen the Defender checking whether it was destroyed by 3rd party apps;
+* Improved and fixed bug when `DNSoverHTTPS` function didn't enable DNS-over-HTTPS feature;
+  * Please check if it's enabled for you in the Settings;
+  * #374 closed.
+* Improved the Ukrainian 🇺🇦 : translation.
+  * #375 merged.
+* Minor changes.
+
+### Sophia Script Wrapper 2.5.7
+
+* Output PowerShell: Refresh Console before Export
+* Output `DNSoverHTTPS` for other languages other than English
+
+## 5.13.2 | 6.1.2 — 16.07.2022
+
+## Windows 11 21H2/22H2 | Windows 10 2004/20H2/21H1/21H2/22H2 | Enterprise LTSC 2021 | Enterprise LTSC 2019
+
+## Anniversary build of Sophia Script!💯⭐
+
+* Improved startup checks, especially regarding Microsoft Defender whether it wasn't removed or destroyed by malicious tweakers;
+* Added `RKNBypass` function to enable proxying only blocked sites from the unified registry of Roskomnadzor;
+  * The function will be applied only if the region in Windows is set to "Russia";
+  * Based on <https://antizapret.prostovpn.org> proxy.
+* Added `WSA` function to enable the latest Windows Subsystem for Android™ with Amazon Appstore;
+  * All necessary dependencies will enabled (reboot may require) and the Microsoft Store WSA page will be opened to install it manually;
+  * To use Windows Subsystem for Android™ on your device, your PC needs to have Solid State Drive (SSD) installed.
+* #365 closed
+* Minor changes;
+* Fixed numerous typos.
+
+### Sophia Script Wrapper 2.5.6
+
+* @BenchTweakGaming fixed minor UI bug;
+* Resized width of window for Russian and fixes scrolling per tab.
+
+## 5.13.1 | 6.1.1 — 04.07.2022
+
+## Windows 11 21H2/22H2 | Windows 10 2004/20H2/21H1/21H2/22H2 | Enterprise LTSC 2021 | Enterprise LTSC 2019
+
+* Now the repo doesn't keep any 3rd party libraries, and all scripts are built using an updated GitHub Action [config](https://github.com/farag2/Sophia-Script-for-Windows/blob/master/.github/workflows/Sophia.yml);
+  * 3rd party tools that are downloaded and used;
+    * [PolicyFileEditor](https://github.com/dlwyatt/PolicyFileEditor) made by @dlwyatt;
+    * [Microsoft.Windows.SDK.NET.Ref](https://www.nuget.org/packages/Microsoft.Windows.SDK.NET.Ref/);
+    * [CsWinRT](https://github.com/microsoft/CsWinRT).
+* Fixed bug in `NetworkAdaptersSavePower` function when script hung if one network adapter was disabled;
+  * Reported by @poohart.
+* Fixed bug in `UninstallUWPApps` function for PowerShell 7 based scripts when a WPF form didn't render at all;
+  * Reported by @poohart.
+* Improved `UpdateLGPEPolicies` function;
+  * Now it creates `GPT.ini` file automatically if it doesn't exist.
+* Minor changes;
+* Fixed numerous typos.
+
+### Sophia Script Wrapper 2.5.5
+
+* @BenchTweakGaming fixed bug when the app crashed if a PowerShell 7 preset was imported;
+* Minor changes;
+
+## 5.13.0 | 6.1.0 — 04.07.2022
+
+## Windows 11 21H2/22H2 | Windows 10 2004/20H2/21H1/21H2/22H2 | Enterprise LTSC 2021 | Enterprise LTSC 2019
+
+* Added awesome `UpdateLGPEPolicies` function :ghost:
+  * It's common known, that the `gpedit.msc` snap-in doesn't read settings from the Windows registry keys if they were made manually, bypassing the snap-in. This new function lets you update gpedit.msc to make all your policies created manually displayed regardless when registry keys were created. There is no need to run the whole `Sophia Script` — just call `UpdateLGPEPolicies` function. By default this function will be invoked at very end of script running to make all policies registry keys used in the script displayed.
+  * To check all policies applied to your OS (if they have a record in `gpedit.msc`) after invoking `UpdateLGPEPolicies`, open `gpedit.msc` and navigate to:
+    * `Computer Configuration` — `Administrative Templates` — `All Settings`;
+    * `User Configuration` — `Administrative Templates` — `All Settings`.
+  * Uses [PolicyFileEditor](https://github.com/dlwyatt/PolicyFileEditor) module created by [Dave Wyatt](https://github.com/dlwyatt)
+* Added `InstallDotNetRuntime6` function to let user install the latest .NET Desktop Runtime 6 (x86/x64);
+  * The Internet access required;
+  * Closes #347.
+* Fixed bug in `NetworkAdaptersSavePower` function that caused an error that there is no internet connection even if it was so;
+* Formaly added Windows 10 22H2 support;
+* Updated startup checks;
+* Fixed `DiagnosticDataLevel` function;
+  * Now it uses `gpedit.msc` path: `HKLM:\Software\Policies\Microsoft\Windows\DataCollection` instead of `HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection`;
+  * To updated registry keys run `DiagnosticDataLevel -Minimal`.
+* Added `SearchHighlights` function to hide search highlights for Windows 10;
+* Fixed `UnpinAllStartApps` function;
+  * Now it's working for Windows 11 22H2 Insider Preview too.
+* Removed `Windows10FileExplorer` to enabled `Windows 10 File Explorer` in Windows 11;
+* Updated `TaskManagerWindow` function to make it not to be run on Windows 11 22H2;
+  * Closes #348.
+* Fixed a bug in `OpenWindowsTerminalAdminContext` function when you cannot open Windows Terminal as admin in a path ends in a backslash `\`;
+  * Closes #340. Read more [here](https://github.com/microsoft/terminal/issues/4571).
+* Signed all PowerShell files by a self-signed certificates;
+  * ![image](https://i.imgur.com/9JX5Tvn.png)
+* #345 closed;
+* Minor changes;
+* Updated descriptions;
+  * Thanks to @THEBOSSMAGNUS
+
+### Sophia Script Wrapper 2.5.4
+
+* Updated translations;
+* Works with the latest Sophia Script preset files;
+* Minor changes;
+
+## 5.12.14 | 6.0.14 — 09.04.2022
 
 ## Windows 11 21H2 | Windows 10 2004/20H2/21H1/21H2 | Enterprise LTSC 2021 | Enterprise LTSC 2019
 
-Diff from v6.0.7
-[6.0.7...6.0.8](https://github.com/farag2/Sophia-Script-for-Windows/compare/6.0.7...6.0.8)
+* Added checking that triggers Windows updating and Microsoft Store apps in the background if the build the app is laucnhed ins't supported;
+
+  ```powershell
+  # Enable receiving updates for other Microsoft products when you update Windows
+  (New-Object -ComObject Microsoft.Update.ServiceManager).AddService2("7971f918-a847-4430-9279-4a52d1efe18d", 7, "")
+
+  # Check for UWP apps updates
+  Get-CimInstance -Namespace "Root\cimv2\mdm\dmmap" -ClassName "MDM_EnterpriseModernAppManagement_AppManagement01" | Invoke-CimMethod -MethodName UpdateScanMethod
+
+  # Open the "Windows Update" page
+  Start-Process -FilePath "ms-settings:windowsupdate-action"
+
+  # Trigger Windows Update for detecting new updates
+  (New-Object -ComObject Microsoft.Update.AutoUpdate).DetectNow()
+  ```
+
+* Added Windows 11 Insider Support. Requires 22509 build. Closes #336;
+* Added `StartLayout` function (for Windows 11 Insider 22509 build only
+  * Adds ability to configure Start Layout
+
+    ```powershell
+    StartLayout -Default
+    StartLayout -ShowMorePins
+    StartLayout -ShowMoreRecommendations
+    ```
+
+* Added checking that checks whether OS is waiting to be rebooted;
+* Improved the `DefaultTerminalApp` function;
+* Fixed the `InstallVCRedistx64` function;
+  * Now it downloads the right package. Closes #335.
+* Removed the `DefenderSandbox` function for Windows 11;
+  * Windows 11 has already Sandbox for Defender enabled.
+* Minor changes;
+* Updated descriptions;
+* Check out [SophiApp](https://github.com/Sophia-Community/SophiApp) 1.0.0.50 :rocket:
+
+## 5.12.12 | 6.0.13 — 27.02.2022
+
+## Windows 11 21H2 | Windows 10 2004/20H2/21H1/21H2 | Enterprise LTSC 2021 | Enterprise LTSC 2019
+
+* Added the checking whether Defender wasn't disabled;
+* Fixed `XboxGameBar`;
+  * To prevent popping up the "You'll need a new app to open this `ms-gamingoverlay`" warning, you need to disable the `Xbox Game Bar` app, even if you uninstalled it before.
+* Updated descriptions.
+* Check out [SophiApp](https://github.com/Sophia-Community/SophiApp) 1.0.0.23 beta 3 :rocket:
+
+## 5.12.11 | 6.0.12 — 02.02.2022
+
+## Windows 11 21H2 | Windows 10 2004/20H2/21H1/21H2 | Enterprise LTSC 2021 | Enterprise LTSC 2019
+
+* Merged #315 & #326;
+* Updated descriptions.
+* Check out [SophiApp](https://github.com/Sophia-Community/SophiApp) 1.0.0.13 beta 2 :rocket:
+
+## 5.12.10 | 6.0.11 — 31.12.2022
+
+## Windows 11 21H2 | Windows 10 2004/20H2/21H1/21H2 | Enterprise LTSC 2021 | Enterprise LTSC 2019
+
+* Merged #315 & #326;
+* Updated descriptions.
+* Check out [SophiApp](https://github.com/Sophia-Community/SophiApp) 1.0.0.13 beta 2 :rocket:
+
+## 5.12.10 | 6.0.11 — 31.12.2021
+
+## Windows 11 21H2 | Windows 10 2004/20H2/21H1/21H2 | Enterprise LTSC 2021 | Enterprise LTSC 2019
+
+* Check out our new [how-to video](https://www.youtube.com/watch?v=q_weQifFM58) about Sophia Script and the Wrapper;
+* The `NewsInterests` function now uses the policy due to Microsoft has blocked the ability to turn off the widget via registry;
+* Improved and fixed `DNSoverHTTPS`;
+  * Now the function can be applied if Hyper-V is enabled when a virtual net switch is being created.
+* [Finally](https://t.me/SophiaNews/559), we released [SophiApp](https://github.com/Sophia-Community/SophiApp) 1.0.0 beta 1 :rocket:
+* Happy New year! ![ruboard](https://forum.ru-board.com/board/s/deds.gif)
+
+![SophiApp](https://i.imgur.com/6KBMwsG.png)
+![SophiApp](https://i.imgur.com/AssAQ35.jpg)
+
+## 5.12.9 | 6.0.10 — 15.12.2021
+
+## Windows 11 21H2 | Windows 10 2004/20H2/21H1/21H2 | Enterprise LTSC 2021 | Enterprise LTSC 2019
+
+* Fixed a bug thats prevented getting the current preset name loaded into session;
+  * Closes #312.
+
+## 5.12.8 | 6.0.9 — 14.12.2021
+
+## Windows 11 21H2 | Windows 10 2004/20H2/21H1/21H2 | Enterprise LTSC 2021 | Enterprise LTSC 2019
+
+* Fixed a typo in the `DefaultTerminalApp -WindowsTerminal` function that prevents the function to get the Windows Terminal `PackageFullName` variable value;
+* The `WinPrtScrFolder -Desktop` function was improved;
+* The `Windows 10 Enterprise LTSC 2019` version is now deprecated and won't be supported. Please, if you an ortodox who likes outdated and abandoned Windows, switch to `Windows 3.11` back, or at least `Windows 10 Enterprise LTSC 2021`;
+* Minor changes.
+
+## 5.12.7 | 6.0.8 — 05.12.2021
+
+## Windows 11 21H2 | Windows 10 2004/20H2/21H1/21H2 | Enterprise LTSC 2021 | Enterprise LTSC 2019
 
 * Fixed small bug in the `OneDrive` function that prevents a folder to be removed;
 * Fixed small bug in the `OneDrive` function that prevents OneDrive to be downloaded (Microsoft changed the cloud XML silently);
 * The `WinPrtScrFolder` function was improved;
   * Now it doesn't matter how your preset was named: the fucntion will parse the preset that was loaded into session to find whether the `OneDrive -Uninstall` function was commented out or not;
 * Minor changes.
-* [Check out](https://t.me/SophiaNews/396) the 4th [SophiApp](https://github.com/Sophia-Community/SophiApp) 0.0.0.70 public alpha build :rocket:
-
-![SophiApp](https://hsto.org/r/w780/getpro/habr/upload_files/be9/060/0b6/be90600b648639aa85d755fe10677cb2.jpg)
 
 ## Sophia Script Wrapper 2.5.3
 
@@ -31,18 +686,15 @@ Diff from v6.0.7
 
 ## Windows 11 21H2 | Windows 10 2004/20H2/21H1/21H2 | Enterprise LTSC 2021 | Enterprise LTSC 2019
 
-Diff from v6.0.6
-[6.0.6...6.0.7](https://github.com/farag2/Sophia-Script-for-Windows/compare/5.12.4...5.12.5)
 * Added support for Windows 10 Enterprise LTSC 2021;
 * Added the `UninstallPCHealthCheck` funtion;
   * This application is installed with the [KB5005463](https://support.microsoft.com/en-us/topic/kb5005463-pc-health-check-application-e33cf4e2-49e2-4727-b913-f3c5b1ee0e56) update to check if PC meets the system requirements of Windows 11;
   * For Windows 10 only.
-* Added the `InstallVCRedistx64` funtion;
+* Added the `InstallVCRedist` funtion;
   * Install the latest supported Microsoft Visual C++ Redistributable 2015—2022 x64;
   * <https://docs.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist>;
 * Added the `UnpinAllStartApps` function to provide a feature to unpin all Start apps;
 * Minor changes.
-* [Check out](https://t.me/SophiaNews/396) the 4th [SophiApp](https://github.com/Sophia-Community/SophiApp) 0.0.0.70 public alpha build :rocket:
 
 ## Sophia Script Wrapper 2.5.2
 
@@ -155,7 +807,7 @@ Invoke-RestMethod -Uri script.sophi.app | Invoke-Expression
 * Closed #252, #253 (thnx to @Henry2o1o);
 * More JSONs. Split up Windows 10 and Windows 11 config and tooltip JSONs files;
 * Console Textbox is now resizable
-* Moved "Save As" button to ‘Export Preset’ in ‘Import/Export Preset’ menu
+* Moved "Save As" button to `Export Preset` in `Import/Export Preset` menu
 * UI color changes
 * Fixed some bugs.
 
@@ -224,7 +876,7 @@ Invoke-RestMethod -Uri script.sophi.app | Invoke-Expression
 ## Windows 11 21H2 | Windows 10 2004/20H2/21H1/21H2 | Enterprise LTSC 2019
 
 * Added the `IPv6Component -Enable`, `IPv6Component -Disable` functions;
-  * Disable the Internet Protocol Version 6 (TCP/IPv6) component for all network connections. Before invoking the function, a check will be run whether your ISP supports the IPv6 protocol using https://ipv6-test.com
+  * Disable the Internet Protocol Version 6 (TCP/IPv6) component for all network connections. Before invoking the function, a check will be run whether your ISP supports the IPv6 protocol using <https://ipv6-test.com>
 * Added the `AeroShaking -Enable`, `AeroShaking -Disable` functions;
   * When I grab a windows's title bar and shake it, minimize all other windows
 * @Inestic has re-writen the `WSL` functions into one with a `WPF form` with list of supported Linux distributions to install. Microsoft has allowed the supported Windows 10 versions to install Linux distributions with [one command](https://devblogs.microsoft.com/commandline/install-wsl-with-a-single-command-now-available-in-windows-10-version-2004-and-higher/) `wsl --install`;
@@ -345,7 +997,7 @@ Diff from v5.10.8
 [5.10.8...5.11](https://github.com/farag2/Windows-10-Sophia-Script/compare/5.10.8...5.11)
 
 * Updated descriptions;
-* Expanded the `Checkings` funtion functionality;
+* Expanded the `Checks` funtion functionality;
 * Updated the `OneDrive` function;
 * Functions removed as not wanted
   * `ShareAcrossDevices`
@@ -391,7 +1043,7 @@ Diff from v5.10.7
   * Added online check for the latest Wrapper version. If you are using old version it will exit;
   * Added online check for the latest imported script version. If you are using old version it will disable directly running (run PowerShell button disabled);
   * UI changes.
-  * 
+
 ## 5.10.7 — 13.06.2021
 
 ## Windows 10 2004/20H2/21H1 | LTSC
@@ -465,13 +1117,13 @@ Diff from v5.10.3
 
 * Почитайте [лонгрид](https://habr.com/company/skillfactory/blog/553800) на Хабре, как происходила разработка скрипта последние полгода.
 * Added a warning message before the script running to be sure a user has customized the `Sophia.ps1` preset file;
-  * You may disable it by removing the `Warning` argument in the `Checkings` function in the preset file.
+  * You may disable it by removing the `Warning` argument in the `Checks` function in the preset file.
 ![image](https://i.imgur.com/d3QUmIP.png)
 * Moved all localization files to the `Localizations` folder;
 ![image](https://i.imgur.com/kQDktvj.png)
 * Fixed bug in the `EventViewerCustomView` function when the `ProcessCreation.xml` file was being created with a wrong encodings;
   * You may invoke the function again: `EventViewerCustomView -Enable`.
-* Updated the GitHub Action [config](https://github.com/farag2/Windows-10-Sophia-Script/blob/master/.github/workflows/Sophia.yml) to automate the SHA256 file creation and uploading to the release page. As @aaronhatesregex wanted 😄 
+* Updated the GitHub Action [config](https://github.com/farag2/Windows-10-Sophia-Script/blob/master/.github/workflows/Sophia.yml) to automate the SHA256 file creation and uploading to the release page. As @aaronhatesregex wanted 😄
 * Updated the Turkish translation. Thanks to @v30xy;
 * Added the Hungarian translation <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Flag_of_Hungary.svg" height="11px"/>. Thanks to @84stangman;
 * Updated Sophia Script Wrapper to 1.1 build 5;
@@ -544,7 +1196,7 @@ Diff from v5.9
 
 * Calling the specific function was completely rewritten! :rocket:
   * Added the <kbd>Tab</kbd> functions autocompletion by typing its' first letters
-    ![Image](./img/Autocomplete.gif)
+    https://user-images.githubusercontent.com/10544660/225270281-908abad1-d125-4cae-a19b-2cf80d5d2751.mp4
   * The code from moved to the `Functions.ps1` file;
   * If you want to call the specific function you need to [dot source](https://docs.microsoft.com/ru-ru/powershell/module/microsoft.powershell.core/about/about_operators#dot-sourcing-operator-) the `Functions.ps1` first
 
@@ -761,7 +1413,7 @@ Diff from v5.3.3
 
 * Now all archives are being created and uploaded to the release page via [GitHub Actions](https://github.com/farag2/Windows-10-Sophia-Script/blob/master/.github/workflows/Sophia.yml);
   * Thnx to @inv2004
-* When running the script using ```.\Sophia.ps1 -Functions "FunctionName1 -Parameter"``` regardless of the functions entered as an argument, the ```Checkings``` function will be executed first, and the ```Refresh``` and ```Errors``` functions will be executed at the end;
+* When running the script using ```.\Sophia.ps1 -Functions "FunctionName1 -Parameter"``` regardless of the functions entered as an argument, the `Checks` function will be executed first, and the ```Refresh``` and ```Errors``` functions will be executed at the end;
 * Updated the ```CreateRestorePoint``` function
   * Closed #124
 * Updated the ```EnableWSL2``` function
@@ -886,7 +1538,7 @@ TelemetryService -Enable
   * Italian (#80). Thanks to @garf02;
   * Turkish (#82). Thanks to @v30xy;
   * French. Thanks to [coleoptere2007](https://forums.mydigitallife.net/members/coleoptere2007.26684);
-  * Ukranian. Thanks to **lowlif3**;
+  * Ukrainian. Thanks to **lowlif3**;
   * Now available in: Available in: <img src="https://upload.wikimedia.org/wikipedia/commons/a/ae/Flag_of_the_United_Kingdom.svg" height="11px"/> <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Flag_of_the_People's_Republic_of_China.svg" height="11px"/> <img src="https://upload.wikimedia.org/wikipedia/commons/b/ba/Flag_of_Germany.svg" height="11px"/> <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" height="11px"/> <img src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg" height="11px"/> <img src="https://upload.wikimedia.org/wikipedia/commons/f/f3/Flag_of_Russia.svg" height="11px"/> <img src="https://upload.wikimedia.org/wikipedia/commons/4/49/Flag_of_Ukraine.svg" height="11px"/> <img src="https://upload.wikimedia.org/wikipedia/commons/b/b4/Flag_of_Turkey.svg" height="11px"/>
 * Updated localizations;
 * Closed #81, #83, #84, #85, #86, #87

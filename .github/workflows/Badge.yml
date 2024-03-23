@@ -1,0 +1,39 @@
+name: Badge
+
+on:
+  push:
+    branches:
+      - master
+    # tags:
+    # - '*.*.*'
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  update-badges:
+    name: Update Badges
+    runs-on: windows-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@main
+
+      - name: Get the Numbers
+        run: |
+          $Summary = ((Get-Content -Path "src\Sophia_Script_for_Windows_11\Module\Sophia.psm1").Count | Measure-Object -Sum).Sum
+          $Summary = "{0:N1}k" -f ($Summary/1000)
+
+          Write-Verbose -Message $Summary -Verbose
+
+          echo "CODE_LINES=$Summary" >> $env:GITHUB_ENV
+
+      - name: Writing to Gist
+        uses: schneegans/dynamic-badges-action@master
+        with:
+          auth: ${{ secrets.GIST_SophiaScript }}
+          gistID: 9852d6b9569a91bf69ceba8a94cc97f4
+          filename: SophiaScript.json
+          label: Lines of Code
+          message: ${{ env.CODE_LINES }}
+          namedLogo: PowerShell
+          color: brightgreen

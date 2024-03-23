@@ -1,4 +1,4 @@
-﻿[
+[
   {
     "Id": "Menu",
     "Options": {
@@ -18,9 +18,10 @@
   {
     "Id": "Tab",
     "Options": {
+      "tabSearch": "Search",
       "tabSystemProtection": "System Protection",
-      "tabPrivacyTelemetry": "Privacy & Telemetry",
-      "tabUIPersonalization": "UI & Personalization",
+      "tabPrivacyTelemetry": "Privacy",
+      "tabUIPersonalization": "Personalization",
       "tabOneDrive": "OneDrive",
       "tabSystem": "System",
       "tabWSL": "WSL",
@@ -30,6 +31,7 @@
       "tabScheduledTasks": "Scheduled Tasks",
       "tabDefenderSecurity": "Defender & Security",
       "tabContextMenu": "Context Menu",
+      "tabUpdatePolicies": "Update Policies",
       "tabConsoleOutput": "Console Output"
     }
   },
@@ -37,7 +39,11 @@
     "Id": "Button",
     "Options": {
       "btnRefreshConsole": "Refresh Console",
-      "btnRunPowerShell": "Run PowerShell"
+      "btnRunPowerShell": "Run PowerShell",
+      "btnOpen": "Open",
+      "btnSave": "Save",
+      "btnSearch": "Search",
+      "btnClear": "Clear"
     }
   },
   {
@@ -52,18 +58,28 @@
       "statusBarPowerShellExport": "PowerShell script created!",
       "statusBarOpposite": "Opposite selected!",
       "statusBarClear": "Selections all cleared!",
-      "statusBarDisabled": "You must 'Import Preset' first to enable use of Wrapper. Import to enable controls."
+      "statusBarDisabled": "Import a preset to enable controls.",
+      "statusBarCurrentOS": "Current OS"
     }
   },
   {
     "Id": "MessageBox",
     "Options": {
-      "messageBoxNewWrapperFound": "A new version of 'Wrapper' found.\nOpen a GitHub latest release page?",
+      "messageBoxNewWrapperFound": "A new version of 'Wrapper' found.\nOpen GitHub latest release page?",
       "messageBoxNewSophiaFound": "A new version Sophia Script found.\nOpen GitHub latest release page?",
-      "messageBoxDoesNotExist": "does not exist",
+      "messageBoxDoesNotExist": "does not exist.",
       "messageBoxPresetNotComp": "preset file is not compatible!",
-      "messageBoxFilesMissingClose": "Files missing so Sophia Script Wrapper will close",
-      "messageBoxConsoleEmpty": "The console is empty.\nClick 'Refresh Console' button to create script with your selections"
+      "messageBoxFilesMissingClose": "Files missing so Sophia Script Wrapper will close.",
+      "messageBoxConsoleEmpty": "The console is empty.\nClick 'Refresh Console' button to create script with your selections.",
+      "messageBoxPowerShellVersionNotInstalled": "PowerShell version you selected is not installed.",
+      "messageBoxMaybeFilesNotUnzippedProperly": "Maybe files not unzipped properly."
+    }
+  },
+  {
+    "Id": "Other",
+    "Options": {
+      "textBlockSearchInfo": "Enter search string to find the option. The tab will be outlined in the color red locating the tab containing the option(s) and the option's label will also be in outlined in red.",
+      "textBlockSearchFound": "Number of options found:"
     }
   }
 ]
